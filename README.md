@@ -7,7 +7,7 @@
 - [X] Matchmaker
 - [ ] Sac system
 - [ ] support for custom cosmetics
-- [X] xmapp (Really broken rn, will be fixed soon!)
+- [X] xmpp (Really broken rn, will be fixed soon!)
 - [ ] integration with gameserver
 - [ ] Daily Vbucks
 - [X] Battlepass
