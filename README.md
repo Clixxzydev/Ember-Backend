@@ -7,7 +7,7 @@
 - [X] Matchmaker
 - [ ] Sac system
 - [ ] support for custom cosmetics
-- [X] xmapp
+- [X] xmapp (Really broken rn, will be fixed soon!)
 - [ ] integration with gameserver
 - [ ] Daily Vbucks
 - [X] Battlepass
@@ -21,7 +21,16 @@ Feel Free to use this code, for your own OGFN project.
 But you MUST add credits to me or Swayzy
 
 
+## How To Setup
 
+1. Download the source code, or clone the repository
+2. Extract if necessary
+3. Open .env file
+4. Copy your user id from discord, and paste it in the "MODERATORS" section
+5. Add your discord bot token
+6. Download mongodb community server (MUST BE THAT VERSION)
+7. Make a new connection, and enter the text from "MONGODB_DATABASE" in the URI
+8. Finally run the start.bat command to start your backend!
 
 
 
