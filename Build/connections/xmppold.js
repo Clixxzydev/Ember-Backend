@@ -4,15 +4,17 @@ const XMLParser = require("xml-parser");
 const express = require("express");
 const app = express();
 
-const log = require("../structs/log.js");
-const functions = require("../structs/functions.js");
+const id = require("../structs/uuid.js");
+const Decode = require("../structs/DecodeBase.js");
+const Xmpp = require("../structs/XmppMessage.js");
+const Presence = require("../structs/Presence.js");
 
 const User = require("../model/user.js");
 const Friends = require("../model/friends.js");
 
 const port = 80;
 const wss = new WebSocket({ server: app.listen(port) });
-const matchmaker = require("../connections/matchmaker.js");
+const matchmaker = require("./matchmaker.js");
 
 global.xmppDomain = "prod.ol.epicgames.com";
 
@@ -45,14 +47,12 @@ app.get("/clients", (req, res) => {
     res.send(data);
 });
 
-wss.on('listening', () => {
-    log.xmpp(`XMPP and Matchmaker started listening on port ${port}`);
-});
+wss.on('listening', () => console.log('\x1b[33m%s\x1b[0m',"XMPP and Matchmaker started on port", port));
+
 
 wss.on('connection', async (ws) => {
     ws.on('error', () => {});
 
-    // Start matchmaker if it's not connecting for xmpp.
     if (ws.protocol.toLowerCase() != "xmpp") return matchmaker(ws);
 
     let joinedMUCs = [];
@@ -74,7 +74,7 @@ wss.on('connection', async (ws) => {
 
         switch (msg.root.name) {
             case "open":
-                if (!ID) ID = functions.MakeID();
+                if (!ID) ID = id.MakeID();
 
                 ws.send(XMLBuilder.create("open")
                 .attribute("xmlns", "urn:ietf:params:xml:ns:xmpp-framing")
@@ -107,9 +107,9 @@ wss.on('connection', async (ws) => {
                 if (!ID) return;
                 if (accountId) return;
                 if (!msg.root.content) return Error(ws);
-                if (!functions.DecodeBase64(msg.root.content).includes("\u0000")) return Error(ws);
+                if (!Decode.DecodeBase64(msg.root.content).includes("\u0000")) return Error(ws);
 
-                let decodedBase64 = functions.DecodeBase64(msg.root.content).split("\u0000");
+                let decodedBase64 = Decode.DecodeBase64(msg.root.content).split("\u0000");
 
                 let object = global.accessTokens.find(i => i.token == decodedBase64[2]);
                 if (!object) return Error(ws);
@@ -125,7 +125,6 @@ wss.on('connection', async (ws) => {
 
                 if (decodedBase64 && accountId && displayName && token && decodedBase64.length == 3) {
                     Authenticated = true;
-                    log.xmpp(`An xmpp client with the displayName ${displayName} has logged in.`);
 
                     ws.send(XMLBuilder.create("success").attribute("xmlns", "urn:ietf:params:xml:ns:xmpp-sasl").toString());
                 } else return Error(ws);
@@ -358,7 +357,7 @@ wss.on('connection', async (ws) => {
                 let away = msg.root.children.find(i => i.name == "show") ? true : false;
 
                 await updatePresenceForFriends(ws, status, away, false);
-                functions.getPresenceFromUser(accountId, accountId, false);
+                Presence.getPresenceFromUser(accountId, accountId, false);
             break;
         }
 
@@ -430,7 +429,7 @@ function RemoveClient(ws, joinedMUCs) {
             if (client.accountId == ClientData.accountId) return;
 
             ClientData.client.send(XMLBuilder.create("message")
-            .attribute("id", functions.MakeID().replace(/-/ig, "").toUpperCase())
+            .attribute("id", id.MakeID().replace(/-/ig, "").toUpperCase())
             .attribute("from", client.jid)
             .attribute("xmlns", "jabber:client")
             .attribute("to", ClientData.jid)
