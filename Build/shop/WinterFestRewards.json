@@ -1,0 +1,18 @@
+{
+  "11": {
+    "ERG.Node.A.1": ["AthenaCharacter:cid_645_athena_commando_f_wolly"],
+    "ERG.Node.B.1": ["AthenaGlider:glider_id_188_galileorocket_g7oki"],
+    "ERG.Node.C.1": ["AthenaBackpack:bid_430_galileospeedboat_9rxe3"],
+    "ERG.Node.D.1": ["AthenaCharacter:cid_643_athena_commando_m_ornamentsoldier"],
+    "ERG.Node.A.2": ["AthenaPickaxe:pickaxe_id_329_gingerbreadcookie1h"],
+    "ERG.Node.A.3": ["AthenaPickaxe:pickaxe_id_332_mintminer"],
+    "ERG.Node.A.4": ["AthenaDance:eid_snowglobe"],
+    "ERG.Node.A.5": ["AthenaGlider:glider_id_191_pinetree"],
+    "ERG.Node.A.6": ["AthenaItemWrap:wrap_188_wrappingpaper"],
+    "ERG.Node.A.7": ["AthenaItemWrap:wrap_183_newyear2020"],
+    "ERG.Node.A.8": ["AthenaSkyDiveContrail:trails_id_082_holidaygarland"],
+    "ERG.Node.A.9": ["AthenaMusicPack:musicpack_040_xmaschiptunes"],
+    "ERG.Node.A.10": ["AthenaLoadingScreen:lsid_208_smpattern"],
+    "ERG.Node.A.11": ["AthenaLoadingScreen:lsid_209_akcrackshot"]
+  }
+}
