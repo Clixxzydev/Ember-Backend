@@ -35,7 +35,9 @@ But you MUST add credits to me or Swayzy
 Extra Step,
 If you wanna remove all traces of ember ingame. Edit the DefaultGame.ini, and replace all the text containing ember, and either replace it or remove it
 
+## Bugs
 
+If you notice any issues with the backend, please make a new issue.
 
 
 Currently Only Devs are [Clixxzy](https://github.com/Clixxzydev) and [Swayzy](https://github.com/SwayzyFN)
