@@ -16,6 +16,7 @@
 - [ ] Custom Role Tags For Ingame
 - [X] Easy setup
 - [ ] Gifting (through discord maybe FN)
+- [x] Auto rotating shop
 
 Feel Free to use this code, for your own OGFN project.
 But you MUST add credits to me or Swayzy
