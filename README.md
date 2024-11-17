@@ -4,17 +4,17 @@
 
 ## Planned Features
 
-- [ ] Matchmaker
+- [X] Matchmaker
 - [ ] Sac system
 - [ ] support for custom cosmetics
-- [ ] xmapp
+- [X] xmapp
 - [ ] integration with gameserver
 - [ ] Daily Vbucks
-- [ ] Battlepass
+- [X] Battlepass
 - [ ] HWID Bans
 - [ ] Player Count
 - [ ] Custom Role Tags For Ingame
-- [ ] Easy setup
+- [X] Easy setup
 - [ ] Gifting (through discord maybe FN)
 
 Feel Free to use this code, for your own OGFN project.
