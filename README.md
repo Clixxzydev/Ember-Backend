@@ -15,7 +15,7 @@
 - [ ] Player Count
 - [ ] Custom Role Tags For Ingame
 - [ ] Easy setup
-- [ ] Gifting (through discord)
+- [ ] Gifting (through discord maybe FN)
 
 Feel Free to use this code, for your own OGFN project.
 But you MUST add credits to me or Swayzy
