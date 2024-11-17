@@ -32,6 +32,9 @@ But you MUST add credits to me or Swayzy
 7. Make a new connection, and enter the text from "MONGODB_DATABASE" in the URI
 8. Finally run the start.bat command to start your backend!
 
+Extra Step,
+If you wanna remove all traces of ember ingame. Edit the DefaultGame.ini, and replace all the text containing ember, and either replace it or remove it
+
 
 
 
